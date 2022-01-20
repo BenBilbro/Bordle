@@ -5,7 +5,8 @@ function removeSessionHistory() {
   console.log("Removing session history")
   if (window.localStorage.getItem("gameState") != null) {
       window.localStorage.removeItem("gameState")
-      alert("Please refresh for a new word!")
+      alert("Generating new word!")
+      window.location.reload();
   }
 }
 
