@@ -25,6 +25,71 @@
 
     <style>
       /* Global Styles & Colors */
+      * {
+        box-sizing: border-box;
+      }
+      .openBtn {
+        display: flex;
+        justify-content: left;
+      }
+      .openButton {
+        border: none;
+        border-radius: 5px;
+        background-color: #1c87c9;
+        color: white;
+        padding: 14px 20px;
+        cursor: pointer;
+        position: fixed;
+      }
+      .loginPopup {
+        position: relative;
+        text-align: center;
+        width: 100%;
+      }
+      .formPopup {
+        display: none;
+        position: fixed;
+        left: 45%;
+        top: 5%;
+        transform: translate(-50%, 5%);
+        border: 3px solid #999999;
+        z-index: 9;
+      }
+      .formContainer {
+        max-width: 300px;
+        padding: 20px;
+        background-color: #fff;
+      }
+      .formContainer input[type=text],
+      .formContainer input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 20px 0;
+        border: none;
+        background: #eee;
+      }
+      .formContainer input[type=text]:focus,
+      .formContainer input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+      }
+      .formContainer .btn {
+        padding: 12px 20px;
+        border: none;
+        background-color: #8ebf42;
+        color: #fff;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 15px;
+        opacity: 0.8;
+      }
+      .formContainer .cancel {
+        background-color: #cc0000;
+      }
+      .formContainer .btn:hover,
+      .openButton:hover {
+        opacity: 1;
+      }
       :root {
         --green: #6aaa64;
         --darkendGreen: #538d4e;
@@ -144,7 +209,24 @@
     </style>
   </head>
   <body>
-    <button class="tablink" id="resetSessionButton">Get New Word!</button>
+    <!-- <button class="tablink" id="changeTileCount">Change Word Length!</button> -->
+    <div class="openBtn">
+      <button class="openButton" onclick="openForm()"><strong>New Word + Change Letter Length!</strong></button>
+    </div>
+    <div class="loginPopup">
+      <div class="formPopup" id="popupForm">
+        <form class="formContainer">
+          <h3>Currently Supports 4 through 12 Letter Words!</h3>
+          <label for="email">
+            <strong>Number of Letters</strong>
+          </label>
+          <input type="text" id="email" value="5" name="email" required>
+          <button type="submit" class="btn" id="changeTileButton">Change Number Of Letters</button>
+          <button class="btn" id="resetSessionButton">Get New Word!</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+    </div>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2SSGMHY3NP"></script>
     <script>
       (function () {
@@ -153,7 +235,7 @@
         window.wordle.hash = 'e65ce0a5';
       })();
     </script>
-    <script src="stinkyuglycode.js"></script>
+    <script src="backup.js"></script>
     <game-app></game-app>
   </body>
 </html>
